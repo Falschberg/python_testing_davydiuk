@@ -28,7 +28,6 @@ class test_add_group(unittest.TestCase):
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
     def open_group_page(self, wd):
-        # open groups page
         wd.find_element_by_link_text("groups").click()
 
     def create_group(self, wd, group):
@@ -48,11 +47,9 @@ class test_add_group(unittest.TestCase):
         wd.find_element_by_name("submit").click()
 
     def return_to_group_page(self, wd):
-        # return to group page
         wd.find_element_by_link_text("group page").click()
 
     def logout(self, wd):
-        # logout
         wd.find_element_by_link_text("Logout").click()
     
     def test_add_group(self):
