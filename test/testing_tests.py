@@ -1,9 +1,12 @@
 # Тестирование нерабочих концепций
 
 # -*- coding: utf-8 -*-
+import time
+import unittest
+
+from model.new_contact import New_contact
 from selenium.webdriver.firefox.webdriver import WebDriver
-from new_contact import New_contact
-import time, unittest
+
 
 def is_alert_present(wd):
     try:
