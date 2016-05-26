@@ -1,14 +1,5 @@
 # -*- coding: utf-8 -*-
-import pytest
-from fixture.supplement import Supplement
 from model.new_contact import New_contact
-
-
-@pytest.fixture()
-def app(request):
-    fixture = Supplement()
-    request.addfinalizer(fixture.destroy)
-    return fixture
 
 
 def test_add_new_contact(app):
