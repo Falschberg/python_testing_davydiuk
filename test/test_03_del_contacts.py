@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+
+def test_delete_first_contact(app):
+    app.session.login(username="admin", password="secret")
+    app.new_contact.delete_first_contact()
+    app.session.logout()
+
+
+def test_delete_all_contacts(app):
+    app.session.login(username="admin", password="secret")
+    app.new_contact.delete_all_contacts()
+    app.session.logout()
