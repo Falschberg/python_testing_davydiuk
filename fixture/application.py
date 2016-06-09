@@ -2,17 +2,17 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
-from fixture.new_contact import NewContactHelper
+from fixture.contact import ContactHelper
 
 
 class Application:
 
     def __init__(self):
         self.wd = WebDriver()
-        self.wd.implicitly_wait(3)
+        self.wd.implicitly_wait(1)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
-        self.new_contact = NewContactHelper(self)
+        self.contact = ContactHelper(self)
 
     def is_valid(self):
         try:

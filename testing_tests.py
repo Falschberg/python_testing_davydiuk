@@ -4,7 +4,7 @@
 import time
 import unittest
 
-from model.new_contact import New_contact
+from model.contact import Contact
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 
@@ -143,12 +143,12 @@ class test_add_new_contact(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.create_new_contact(wd,
-                                New_contact(firstname="", middlename="", lastname="", nickname="",
-                                            title="", company="", address="", home="",
-                                            mobile="", work="", fax="", email="", email2="",
-                                            email3="", homepage="", byear="", ayear="",
-                                            address2="", phone2="", notes="", bday="", bmonth="",
-                                            aday="", amonth="", photo=""))
+                                Contact(firstname="", middlename="", lastname="", nickname="",
+                                        title="", company="", address="", home="",
+                                        mobile="", work="", fax="", email="", email2="",
+                                        email3="", homepage="", byear="", ayear="",
+                                        address2="", phone2="", notes="", bday="", bmonth="",
+                                        aday="", amonth="", photo=""))
         self.return_to_home_page(wd)
         self.logout(wd)
 
