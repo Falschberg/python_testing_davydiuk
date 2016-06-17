@@ -13,7 +13,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         # submite new contact creation
         wd.find_element_by_name("submit").click()
-        self.return_to_home_page()
+        self.open_home_page()
         self.contacts_cache = None
 
     def change_field_value(self, field_firstname, text):
@@ -45,21 +45,27 @@ class ContactHelper:
         # self.change_field_value("notes", contact.notes)
 
     def modify_first_contact(self, new_contact_data):
+        self.modify_contact_by_index(0)
+
+    def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         # modify first contact
-        wd.find_element_by_css_selector("img[alt=\"Edit\"]").click()
+        wd.find_elements_by_css_selector("img[alt=\"Edit\"]")[index].click()
         self.fill_contact_form(new_contact_data)
         # submite contact modification
         wd.find_element_by_name("update").click()
-        self.return_to_home_page()
+        self.open_home_page()
         self.contacts_cache = None
 
-    def delete_first_contact(self):
+    def delete_first_contact(self, index):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         # select first contact
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
         self.submite_deletion()
-        self.return_to_home_page()
+        self.open_home_page()
         self.contacts_cache = None
 
     def delete_all_contacts(self):
@@ -67,7 +73,7 @@ class ContactHelper:
         # select all contacts
         wd.find_element_by_id("MassCB").click()
         self.submite_deletion()
-        self.return_to_home_page()
+        self.open_home_page()
         self.contacts_cache = None
 
     def submite_deletion(self):
@@ -75,7 +81,7 @@ class ContactHelper:
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
 
-    def return_to_home_page(self):
+    def open_home_page(self):
         wd = self.app.wd
         if not (wd.current_url.endswith("/addressbook/") and len(wd.find_elements_by_id("MassCB")) > 0):
             wd.find_element_by_link_text("home").click()
@@ -89,7 +95,7 @@ class ContactHelper:
     def get_contacts_list(self):
         if self.contacts_cache is None:
             wd = self.app.wd
-            self.return_to_home_page()
+            self.open_home_page()
             self.contacts_cache = []
             for element in wd.find_elements_by_name("entry"):
                 text_firstname = element.find_element_by_xpath("td[3]").text
