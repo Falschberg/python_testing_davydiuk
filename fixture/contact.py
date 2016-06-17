@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from model.contact import Contact
 
 class ContactHelper:
 
@@ -24,23 +25,23 @@ class ContactHelper:
     def fill_contact_form(self, contact):
         wd = self.app.wd
         self.change_field_value("firstname", contact.firstname)
-        self.change_field_value("middlename", contact.middlename)
+        # self.change_field_value("middlename", contact.middlename)
         self.change_field_value("lastname", contact.lastname)
-        self.change_field_value("nickname", contact.nickname)
-        self.change_field_value("title", contact.title)
-        self.change_field_value("company", contact.company)
-        self.change_field_value("address", contact.address)
-        self.change_field_value("home", contact.home)
-        self.change_field_value("mobile", contact.mobile)
-        self.change_field_value("work", contact.work)
-        self.change_field_value("fax", contact.fax)
-        self.change_field_value("email", contact.email)
-        self.change_field_value("email2", contact.email2)
-        self.change_field_value("email3", contact.email3)
-        self.change_field_value("homepage", contact.homepage)
-        self.change_field_value("address2", contact.address2)
-        self.change_field_value("phone2", contact.phone2)
-        self.change_field_value("notes", contact.notes)
+        # self.change_field_value("nickname", contact.nickname)
+        # self.change_field_value("title", contact.title)
+        # self.change_field_value("company", contact.company)
+        # self.change_field_value("address", contact.address)
+        # self.change_field_value("home", contact.home)
+        # self.change_field_value("mobile", contact.mobile)
+        # self.change_field_value("work", contact.work)
+        # self.change_field_value("fax", contact.fax)
+        # self.change_field_value("email", contact.email)
+        # self.change_field_value("email2", contact.email2)
+        # self.change_field_value("email3", contact.email3)
+        # self.change_field_value("homepage", contact.homepage)
+        # self.change_field_value("address2", contact.address2)
+        # self.change_field_value("phone2", contact.phone2)
+        # self.change_field_value("notes", contact.notes)
 
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
@@ -75,7 +76,17 @@ class ContactHelper:
         if not (wd.current_url.endswith("/addressbook/") and len(wd.find_elements_by_id("MassCB")) > 0):
             wd.find_element_by_link_text("home").click()
 
-
     def count(self):
         wd = self.app.wd
         return len(wd.find_elements_by_name("selected[]"))
+
+    def get_contacts_list(self):
+        wd = self.app.wd
+        self.return_to_home_page()
+        contacts_list = []
+        for element in wd.find_elements_by_name("entry"):
+            text_firstname = element.find_element_by_xpath("td[3]").text
+            text_lastname = element.find_element_by_xpath("td[2]").text
+            id = element.find_element_by_name("selected[]").get_attribute("id")
+            contacts_list.append(Contact(firstname=text_firstname, lastname=text_lastname, id=id))
+        return contacts_list

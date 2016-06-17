@@ -3,28 +3,24 @@ from model.contact import Contact
 
 
 def test_add_new_contact(app):
-    app.contact.create(Contact(firstname="Louis",
-                               middlename="van",
-                               lastname="Gaal",
-                               nickname = "King Louis",
-                               title = "Coach",
-                               company = "Manchester United Football Club",
-                               address = "Old Trafford",
-                               home = "+44 (0) 161 868 8000",
-                               mobile = "+44 (0) 161 868 8000",
-                               work = "+44 (0) 161 868 8000",
-                               fax = "+44 (0) 161 868 8000",
-                               email = "membership@manutd.co.uk",
-                               email2 = "tickets@manutd.co.uk",
-                               email3 = "disability@manutd.co.uk",
-                               homepage = "http://www.manutd.com/",
-                               address2 = "Sir Matt Busby Way, Manchester, M16 0RA",
-                               phone2 = "+44 (0) 161 868 8000",
-                               notes = "Aloysius Paulus Maria van Gaal"))
+    old_contacts = app.contact.get_contacts_list()
+    new_contact = Contact(firstname="Louis", lastname="Gaal")
+    app.contact.create(new_contact)
+    new_contacts = app.contact.get_contacts_list()
+    assert len(old_contacts) + 1 == len(new_contacts)
+    old_contacts.append(new_contact)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 
 
 def test_add_empty_contact(app):
+    old_contacts = app.contact.get_contacts_list()
+    new_contact = Contact(firstname="", lastname="")
     app.contact.create(Contact())
+    new_contacts = app.contact.get_contacts_list()
+    assert len(old_contacts) + 1 == len(new_contacts)
+    old_contacts.append(new_contact)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+
 
 
 
