@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c32df168-1a8d-4454-98c2-7b71f02e5675" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conftest.py" afterPath="$PROJECT_DIR$/conftest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/groups.json" afterPath="$PROJECT_DIR$/data/groups.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fixture/contact.py" afterPath="$PROJECT_DIR$/fixture/contact.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fixture/group.py" afterPath="$PROJECT_DIR$/fixture/group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generator/group.py" afterPath="$PROJECT_DIR$/generator/group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target.json" afterPath="$PROJECT_DIR$/target.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_01_add_group.py" afterPath="$PROJECT_DIR$/test/test_01_add_group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_01_add_new_contact.py" afterPath="$PROJECT_DIR$/test/test_01_add_new_contact.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_02_modify_group.py" afterPath="$PROJECT_DIR$/test/test_02_modify_group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_03_del_contacts.py" afterPath="$PROJECT_DIR$/test/test_03_del_contacts.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_03_del_group.py" afterPath="$PROJECT_DIR$/test/test_03_del_group.py" />
     </list>
     <ignored path="python_testing_davydiuk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +26,8 @@
       <file leaf-file-name="test_02_modify_group.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test_02_modify_group.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+            <state relative-caret-position="289">
+              <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
               <folding>
                 <element signature="e#24#53#0" expanded="true" />
               </folding>
@@ -626,23 +615,11 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="py_test_in_test_01_add_group_py - 2016.07.19 at 18h 04m 31s.xml">
-      <configuration name="py.test in test_01_add_group.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_in_test_01_add_group_py - 2016.07.19 at 18h 07m 31s.xml">
-      <configuration name="py.test in test_01_add_group.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="py_test_in_test_01_add_group_py - 2016.07.20 at 13h 53m 59s.xml">
       <configuration name="py.test in test_01_add_group.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.19 at 18h 00m 59s.xml">
-      <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.19 at 18h 03m 11s.xml">
-      <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.19 at 18h 04m 40s.xml">
-      <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
+    <history-entry file="py_test_in_test_01_add_group_py - 2016.07.20 at 13h 59m 46s.xml">
+      <configuration name="py.test in test_01_add_group.py" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.19 at 18h 07m 45s.xml">
       <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
@@ -656,17 +633,29 @@
     <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.20 at 13h 54m 18s.xml">
       <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.20 at 13h 58m 43s.xml">
+      <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.20 at 13h 59m 00s.xml">
+      <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.20 at 13h 59m 23s.xml">
+      <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_02_modify_group_py - 2016.07.20 at 13h 59m 52s.xml">
+      <configuration name="py.test in test_02_modify_group.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1050" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22422954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3278867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3278867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1050,8 +1039,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test_02_modify_group.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+        <state relative-caret-position="289">
+          <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
           <folding>
             <element signature="e#24#53#0" expanded="true" />
           </folding>
