@@ -29,7 +29,7 @@ def random_string(prefix, maxlen):
 
 
 testdata = [Group(name="", header="", footer="")] + [
-    Group(name=random_string("name", 10), header=random_string("header", 20), footer=random_string("footer", 20))
+    Group(name=random_string("name", 5), header=random_string("header", 5), footer=random_string("footer", 5))
     for i in range(n)
 ]
 

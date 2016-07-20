@@ -70,6 +70,18 @@ class ContactHelper:
         self.open_home_page()
         self.contacts_cache = None
 
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        # select first contact
+        self.select_contact_by_id(id)
+        self.submite_deletion()
+        self.open_home_page()
+        self.contacts_cache = None
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+
     def delete_all_contacts(self):
         wd = self.app.wd
         # select all contacts
