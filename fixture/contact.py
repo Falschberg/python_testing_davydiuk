@@ -59,6 +59,16 @@ class ContactHelper:
         self.open_home_page()
         self.contacts_cache = None
 
+    def modify_contact_by_id(self, id, new_contact_data):
+        wd = self.app.wd
+        # serch all contacts
+        wd.find_element_by_css_selector("a[href='edit.php?id=%s']" % str(id)).click()
+        self.fill_contact_form(new_contact_data)
+        # submite contact modification
+        wd.find_element_by_name("update").click()
+        self.open_home_page()
+        self.contacts_cache = None
+
     def delete_first_contact(self, index):
         self.delete_contact_by_index(0)
 
