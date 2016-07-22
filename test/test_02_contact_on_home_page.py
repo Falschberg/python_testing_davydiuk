@@ -3,7 +3,15 @@ from model.contact import Contact
 import re
 from random import randrange
 
+def test_all_contacts_on_home_page(app, db):
+    contact_from_db = sorted(db.get_contacts_list(), key=Contact.id_or_max)
+    contact_from_home_page = sorted(app.contact.get_contacts_list(), key=Contact.id_or_max)
+    print("\ncontact_from_db - ", contact_from_db)
+    print("\ncontact_from_home_page - ", contact_from_home_page)
+    assert contact_from_db == contact_from_home_page
 
+
+#Old version
 def test_contacts_on_home_page(app):
     if app.contact.count() == 0:
         app.contact.create(Contact(firstname="Firstname", middlename="Middlename" ,lastname="Lastname" , nickname="Nickname",
