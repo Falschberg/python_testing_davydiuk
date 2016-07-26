@@ -4,7 +4,7 @@ import re
 from random import randrange
 
 def test_all_contacts_on_home_page(app, db):
-    contact_from_db = db.get_contacts_list()
+    contact_from_db = db.get_contacts_list_like_homepage()
     contact_from_home_page = app.contact.get_contacts_list()
     print("\ncontact_from_db - ", contact_from_db)
     print("\ncontact_from_home_page - ", contact_from_home_page)
