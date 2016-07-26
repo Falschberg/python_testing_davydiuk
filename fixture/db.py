@@ -2,6 +2,7 @@
 import mysql.connector
 from model.group import Group
 from model.contact import Contact
+import re
 
 
 class DbFixture:
@@ -26,17 +27,51 @@ class DbFixture:
             cursor.close()
         return list
 
+    # def get_contacts_list(self):
+    #     list = []
+    #     cursor = self.connection.cursor()
+    #     try:
+    #         cursor.execute("select id, firstname, lastname, address, email, email2, email3, home, mobile, work, phone2 from addressbook where deprecated='0000-00-00 00:00:00'")
+    #         for row in cursor:
+    #             (id, firstname, lastname, address, email, email2, email3, home, mobile, work, phone2) = row
+    #             print("\n", row)
+    #             list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address,
+    #                                 email=email, email2=email2, email3=email3, homephone=home, mobilephone=mobile,
+    #                                 workphone=work, secondaryphone=phone2))
+    #     finally:
+    #         cursor.close()
+    #     return list
+
     def get_contacts_list(self):
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("select id, firstname, lastname from addressbook where deprecated='0000-00-00 00:00:00'")
+            cursor.execute(
+                "select id, firstname, lastname, address, home, mobile, work, phone2, email, email2, email3 from addressbook where deprecated='0000-00-00 00:00:00'")
             for row in cursor:
-                (id, firstname, lastname) = row
-                list.append(Contact(id=str(id), firstname=firstname, lastname=lastname))
+                (id, firstname, lastname, address, home, mobile, work, phone2, email, email2, email3) = row
+                #print(row)
+                all_phones_from_home_page = "\n".join(filter(lambda x: x != "",
+                                                             map(lambda x: clear(x),
+                                                                 filter(lambda x: x is not None,
+                                                                        [row[4], row[5], row[6], row[7]]))))
+                #print(all_phones_from_home_page)
+                all_emails_from_home_page = "\n".join(filter(lambda x: x != "",
+                                                             map(lambda x: clear(x),
+                                                                 filter(lambda x: x is not None,
+                                                                        [row[8], row[9], row[10]]))))
+                #print(all_emails_from_home_page)
+                list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address,
+                                    all_emails_from_home_page=all_emails_from_home_page, all_phones_from_home_page=all_phones_from_home_page))
+                #print("\n", list)
         finally:
             cursor.close()
         return list
 
+
     def destroy(self):
         self.connection.close()
+
+
+def clear(s):
+    return re.sub("[() -]", "", s)
