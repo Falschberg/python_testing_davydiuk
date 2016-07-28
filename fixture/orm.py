@@ -46,7 +46,7 @@ class ORMFixture:
 
     @db_session
     def get_group_by_id(self, id):
-        return self.convert_groups_to_model(select(g for g in ORMFixture.ORMGroup if g.id == id))
+        return self.convert_groups_to_model(select(g for g in ORMFixture.ORMGroup if g.id == id))[0]
 
     @db_session
     def get_contact_list(self):
