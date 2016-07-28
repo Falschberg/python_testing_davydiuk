@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from model.contact import Contact
+from selenium.webdriver.support.select import Select
 import re
+import time
 
 class ContactHelper:
 
@@ -190,4 +192,14 @@ class ContactHelper:
         secondaryphone = re.search("P: (.*)", text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone,
                        workphone=workphone, secondaryphone=secondaryphone)
+
+    def add_contact_in_group_by_id(self, id, group_name):
+        wd = self.app.wd
+        self.select_contact_by_id(id)
+        # add group
+        Select(wd.find_element_by_name("to_group")).select_by_visible_text(group_name)
+        time.sleep(1)
+        wd.find_element_by_name("add").click()
+        self.open_home_page()
+        self.contacts_cache = None
 

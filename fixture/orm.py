@@ -28,7 +28,7 @@ class ORMFixture:
     def __init__(self, host, name, user, password):
         self.db.bind('mysql', host=host, database=name, user=user, password=password, conv=decoders)
         self.db.generate_mapping()
-        sql_debug(True)
+        sql_debug(False)
 
     def convert_groups_to_model(self, groups):
         def convert(group):
@@ -51,6 +51,11 @@ class ORMFixture:
     @db_session
     def get_contacts_in_group(self, group):
         orm_group = list(select(g for g in ORMFixture.ORMGroup if g.id == group.id))[0]
+        return self.convert_contacts_to_model(orm_group.contacts)
+
+    @db_session
+    def get_contacts_in_groups(self):
+        orm_group = list(select(g for g in ORMFixture.ORMGroup))
         return self.convert_contacts_to_model(orm_group.contacts)
 
     @db_session
