@@ -203,3 +203,14 @@ class ContactHelper:
         self.open_home_page()
         self.contacts_cache = None
 
+    def del_group_in_contact(self, id, group_name):
+        wd = self.app.wd
+        Select(wd.find_element_by_name("group")).select_by_visible_text(group_name)
+        time.sleep(3)
+        self.select_contact_by_id(id)
+        time.sleep(3)
+        wd.find_element_by_name("remove").click()
+        time.sleep(3)
+        self.open_home_page()
+        self.contacts_cache = None
+
