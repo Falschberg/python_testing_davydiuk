@@ -4,7 +4,7 @@ from model.contact import Contact
 from fixture.orm import ORMFixture
 import random
 
-orm = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
+#orm = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
 
 # def test_add_contact_in_group(app, db):
 #     if len(db.get_groups_list()) == 0:
@@ -28,7 +28,7 @@ orm = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
 #     assert sorted(old_contacts_in_group, key=Group.id_or_max) == sorted(new_contacts_in_group, key=Group.id_or_max)
 
 def test_del_contact_in_group(app, db):
-    groups_with_contacts = db.get_contacts_list()
+    groups_with_contacts = db.get_groups_with_contacts()
     # group = random.choice(groups_with_contacts)
     # contacts_in_group = orm.get_contacts_in_group(group)
     print('\n', groups_with_contacts)
